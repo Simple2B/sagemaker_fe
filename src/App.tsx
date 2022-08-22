@@ -1,24 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.sass';
+import MainPage from './components/MainPage';
+import ReportPage from './components/ReportPage';
+import {Routes, Route} from 'react-router-dom';
 
-function App() {
+interface IApp {}
+
+const App: React.FC<IApp> = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="containerApp">
+      <div className="wrapperApp">
+        <Routes>
+          <Route path="/"  element={<MainPage/>}/>
+          <Route path="/report"  element={<ReportPage/>}/>
+        </Routes>
+      </div>
     </div>
   );
 }
