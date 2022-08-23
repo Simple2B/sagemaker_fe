@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { useTypedSelector } from '../../redux/useTypeSelector';
+import Loader from '../Loader/Loader';
 import "./_Report.sass"
 
 interface IReport {}
@@ -9,16 +9,13 @@ const Report: React.FC<IReport> = () => {
 
     const { report, loading, error } = useTypedSelector(state => state.form)
 
-    if (loading) {
-        return <h1>Loading ...</h1>
-    }
-
     if (error) {
         return <h1>{error}</h1>
     }
 
     return(
         <div className='containerReports'>
+            {loading && <Loader/>}
             {report.map((report, index) => {
                 return (
                     <div className='report' key={index}>

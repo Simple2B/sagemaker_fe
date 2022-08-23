@@ -107,7 +107,11 @@ export const fetchReport = (formData: IFormData) => {
         dispatch({type: ReportActionTypes.FETCH_REPORT})
         // const response = await reportApi.sendFormData(formData)
         // you must put to payload => response.data (created report from back)
-        dispatch({type: ReportActionTypes.FETCH_REPORT_SUCCESS, payload: fakeResInfoData})
+
+        // for example reloading data use setTimeout
+        setTimeout(() => {
+            dispatch({type: ReportActionTypes.FETCH_REPORT_SUCCESS, payload: fakeResInfoData})
+        }, 2000)
     } catch (e) {
         dispatch({
             type: ReportActionTypes.FETCH_REPORT_ERROR, 

@@ -29,8 +29,8 @@ const FormInfo: React.FC<IFormInfo> = ({id}) => {
     const [abstract, setAbstract] = useState("")
     const [studyField, setStudyFields] = useState("")
 
-    const [errorName, setErrorName] = useState<string | null>(null)
-    const [errorEmail, setErrorEmail] = useState<string | null>(null)
+    const [errorName, setErrorName] = useState<string>("")
+    const [errorEmail, setErrorEmail] = useState<string>("")
 
     const validateForm = () => {
       const nameLength = name.length;
@@ -68,21 +68,17 @@ const FormInfo: React.FC<IFormInfo> = ({id}) => {
       value: string, 
       setValue: { (value: React.SetStateAction<string>): void; (arg0: any): void}
     ) => {
-      setValue(value)
       validateForm();
+      setValue(value)
     }
 
     const { fetchReport } = useActions()
 
     const handleSubmit = () => {
-      console.log("name ", name);
-      console.log("email ", email);
-
-      
       validateForm();
-      if(name === "" || email === "") {
-        return 
-      }
+      if (name.length === 0 || email.length === 0) {
+        return
+      };
       const dataToBack: IFormData = {
         name: name,
         email: email,
@@ -97,7 +93,7 @@ const FormInfo: React.FC<IFormInfo> = ({id}) => {
     const inputsData = [
       {
         inputLabel: "Your name",
-        error: errorName ?? "",
+        error: errorName,
         styles: "inputContainer",
         type: "text",
         placeholder: "John Doe",
@@ -106,7 +102,7 @@ const FormInfo: React.FC<IFormInfo> = ({id}) => {
       },
       {
         inputLabel: "Your email",
-        error: errorEmail ?? "",
+        error: errorEmail,
         styles: "inputContainer",
         type: "email",
         placeholder: "jdoe@email.com",
