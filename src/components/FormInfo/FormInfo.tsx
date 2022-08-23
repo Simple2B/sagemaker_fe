@@ -27,7 +27,7 @@ const FormInfo: React.FC<IFormInfo> = ({id}) => {
 
     const [title, setTitle] = useState("")
     const [abstract, setAbstract] = useState("")
-    const [studyField, setStudyFields] = useState("")
+    const [studyField, setStudyFields] = useState("business")
 
     const [errorName, setErrorName] = useState<string>("")
     const [errorEmail, setErrorEmail] = useState<string>("")
