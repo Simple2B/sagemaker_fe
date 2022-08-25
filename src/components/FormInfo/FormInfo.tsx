@@ -11,12 +11,12 @@ interface IFormInfo {
 }
 
 const studyFields = [
-  {value: "business"}, 
-  {value: "economics"}, 
-  {value: "history"}, 
-  {value: "philosophy"}, 
-  {value: "political Science"}, 
-  {value: "psychology"}, 
+  {value: "business"},
+  {value: "economics"},
+  {value: "history"},
+  {value: "philosophy"},
+  {value: "political_science"},
+  {value: "psychology"},
   {value: "sociology"}
 ]
 
@@ -65,7 +65,7 @@ const FormInfo: React.FC<IFormInfo> = ({id}) => {
     }
 
     const changeValue = (
-      value: string, 
+      value: string,
       setValue: { (value: React.SetStateAction<string>): void; (arg0: any): void}
     ) => {
       validateForm();
@@ -98,7 +98,7 @@ const FormInfo: React.FC<IFormInfo> = ({id}) => {
         type: "text",
         placeholder: "John Doe",
         value: name,
-        onChangeHandler: (e: { target: { value: string; }; }) => changeValue(e.target.value, setName) 
+        onChangeHandler: (e: { target: { value: string; }; }) => changeValue(e.target.value, setName)
       },
       {
         inputLabel: "Your email",
